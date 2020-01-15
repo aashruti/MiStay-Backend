@@ -1,0 +1,22 @@
+{% extends "Userreg/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+        {% for event in events %}
+            <p></p>
+            <div class="card w-75 mx-auto border-info">
+                <div class="card-body">
+                    <div>
+                        <p class="card-text"><strong>{{ event.venue|upper }}</strong></p>
+                        <h2><a class="card-text text-info">{{event.name}}</a></h2>
+                        <p class="card-text"><small class="text-muted">{{ event.time }}</small></p>
+                        <div>
+                            <a class="btn btn-danger btn-sm active">delete</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    {% endblock %}

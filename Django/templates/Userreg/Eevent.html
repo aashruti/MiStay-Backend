@@ -1,0 +1,21 @@
+{% extends "Userreg/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+        {% for event in events %}
+            <div class="card w-50 mx-auto border-info">
+                <div class="card-body">
+                    <div>
+                        <h2><a class="card-text text-info"href="{% url 'Userreg:event-detail' %}">{{event.name}}</a></h2>
+                        <span class="card-text">Venue:<strong> {{ event.venue|upper }} </strong> - <span class="mx-auto w-50"><strong>{{ event.date }}</strong></span> - <small class="text-muted">Time: <strong>{{ event.time }}</strong></small></span><br>
+                        <span class="card-text">Number of attendees :<strong>{{ event.get_number_of_attendees }}</strong></span>
+                        <p class="card-text">Event Organizer:<strong> {{ user.username}} </strong>   -   <small class="text-muted">Email: {{ user.email }}</small></p>
+                    </div>
+
+
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+
+
+    {% endblock %}

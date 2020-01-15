@@ -1,0 +1,19 @@
+{% extends "Userreg/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+      {% if Created %}
+        <h1>Thank you for Creating an event!</h1>
+      {% else %}
+        <h1>Create Event Here</h1>
+<form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ event_form.as_p }}
+          <input type="submit" name="" value="Create">
+        </form>
+        
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
